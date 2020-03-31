@@ -1,0 +1,51 @@
+{
+  "devtools_port": 9090,
+  "startup_app": {
+    "name": "OpenFin Sample Layout v1 - Selected Tabs",
+    "description": "OpenFin Sample Layout v1 - Selected Tabs",
+    "url": "http://localhost:5001/sample-windows/index.html",
+    "uuid": "openfin-sample-layout-selected-tabs-asd",
+    "autoShow": true,
+    "alwaysOnTop": false,
+    "maximizable": false,
+    "defaultWidth": 250,
+    "defaultHeight": 250,
+    "applicationIcon": "http://localhost:5001/favicon.ico",
+    "frame": true
+  },
+  "runtime": {
+    "version": "13.76.45.13"
+  },
+  "services": [
+    {
+      "name": "layouts",
+      "config": {
+        "features": {
+          "snap": true,
+          "dock": true,
+          "tab": true
+        },
+        "rules": [
+          {
+            "scope": {
+              "level": "application",
+              "uuid": "app-launcher"
+            },
+            "config": {"enabled": false}
+          },
+          {
+            "scope": {
+              "level": "window",
+              "uuid": "openfin-sample-layout-selected-tabs-asd",
+              "name": {"expression": "window-three.*"}
+            },
+            "config": {
+              "features": {
+                "tab": false
+              }
+            }
+          }
+        ]
+      }
+    }]
+}

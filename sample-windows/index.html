@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Main Window</title>
+    </head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script type="application/javascript">
+        function launchWindow(name) {
+            async function createWindow() {
+                let windowName = 'window-' + name + '-' + Date.now();
+                let url = 'http://localhost:5001/sample-windows/window-' + name + '.html';
+                const winOption = {
+                    name:windowName,
+                    defaultWidth: 300,
+                    defaultHeight: 300,
+                    url: url,
+                    frame: true,
+                    autoShow: true
+                };
+                return await fin.Window.create(winOption);
+            }
+            
+            createWindow().then(() => console.log('Window ' + name + ' is created')).catch(err => console.log(err));
+        }
+    </script>
+    <body>
+        <h1>
+            Main Window
+        </h1>
+        <div>
+            <ul>
+                <li>
+                    <a title="Launch Window One"
+                    href="#" onclick="launchWindow('one');return false;">Launch Window One</a>
+                </li>
+                
+                    <li>
+                        <a title="Launch Window Two"
+                        href="#" onclick="launchWindow('two');return false;">Launch Window Two</a>
+                    </li>
+                        <li>
+                            <a title="Launch Window Three"
+                            href="#" onclick="launchWindow('three');return false;">Launch Window Three</a>
+                        </li>
+            </ul>
+        </div>
+    </body>
+</html>
